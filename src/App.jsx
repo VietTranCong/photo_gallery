@@ -1,13 +1,14 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
-import { PhotoList, PhotoDetail } from './components';
+// import { Routes, Route, Navigate } from 'react-router-dom';
+// import { PhotoList, PhotoDetail } from './components';
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/photos/:id" element={<PhotoDetail />} />
-      <Route path="/photos" element={<PhotoList />} />
-      <Route path="/" element={<Navigate to="/photos" />} />
-    </Routes>
+    // <Routes>
+    //   <Route path="/photos/:id" element={<PhotoDetail />} />
+    //   <Route path="/photos" element={<PhotoList />} />
+    //   <Route path="/" element={<Navigate to="/photos" />} />
+    // </Routes>
+    <div className="text-center">123</div>
   );
 };
 
