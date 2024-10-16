@@ -11,6 +11,7 @@ export function PhotoDetail() {
 
     useEffect(() => {
         const fetchPhotoDetail = async () => {
+            setLoading(true);
             try {
                 const response = await axios.get(`https://api.unsplash.com/photos/${id}`, {
                     params: {
