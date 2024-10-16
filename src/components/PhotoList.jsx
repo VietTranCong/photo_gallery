@@ -7,7 +7,6 @@ export function PhotoList() {
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
     //const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-    //            
 
     useEffect(() => {
         const getPhotoList = async () => {
@@ -35,8 +34,9 @@ export function PhotoList() {
     const handleScroll = () => {
         if (!loading) {
             const scrollPosition = window.innerHeight + window.scrollY - 16;
-            const documentHeight = document.body.offsetHeight;
-            if (scrollPosition == documentHeight) {
+            const documentHeight = document.body.scrollHeight;
+            console.log(scrollPosition, documentHeight)
+            if (Math.round(scrollPosition) == Math.round(documentHeight)) {
                 console.log(scrollPosition, documentHeight)
                 setPage((prev) => prev + 1);
             }
@@ -53,7 +53,7 @@ export function PhotoList() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
                 {photos.map(photo => (
                     <Link to={`/photos/${photo.id}`} key={photo.id}>
-                        <div className="relative group">
+                        <div className="relative group overflow-hidden">
                             <img
                                 src={photo.urls.thumb}
                                 alt={photo.alt_description}
@@ -68,6 +68,5 @@ export function PhotoList() {
                 <p className="col-span-full text-center">Loading more photos...</p>
             </div>
         </>
-
     );
 }
